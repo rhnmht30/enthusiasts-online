@@ -118,5 +118,4 @@ app.post("/users/login", redirectIfAuthenticated, loginUserController);
 app.listen(port, () => {
   //   console.log(app.use(express.static(__dirname + "/public")));
   console.log("App listening at PORT " + port);
-  console.log(url, typeof url);
 });
