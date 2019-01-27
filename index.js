@@ -31,8 +31,8 @@ const app = new express();
 // "mongodb://localhost:27017/node-blog"
 
 //database connect
-var username = process.env.DB_USER;
-var pass = process.env.DB_PASS;
+var username = rohan;
+var pass = pass1234;
 mongoose
     .connect(
         "mongodb://" + username + ":" + pass + "@ds213705.mlab.com:13705/node-blog", {
