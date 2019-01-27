@@ -23,18 +23,17 @@ const redirectController = require("./controllers/redirect");
 
 require("dotenv").config();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 const app = new express();
 
 // mongodb://<dbuser>:<dbpassword>@ds213705.mlab.com:13705/node-blog
 // "mongodb://localhost:27017/node-blog"
 
 //database connect
-var username = "rohan";
-var pass = "pass1234";
+var url = process.env.MONGO_URL;
 mongoose
   .connect(
-    "mongodb://" + username + ":" + pass + "@ds213705.mlab.com:13705/node-blog",
+    url,
     {
       useNewUrlParser: true
     }
@@ -119,4 +118,5 @@ app.post("/users/login", redirectIfAuthenticated, loginUserController);
 app.listen(port, () => {
   //   console.log(app.use(express.static(__dirname + "/public")));
   console.log("App listening at PORT " + port);
+  console.log(url, typeof url);
 });
