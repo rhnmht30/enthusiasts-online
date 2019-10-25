@@ -33,8 +33,7 @@ const app = new express();
 var url = process.env.MONGO_URL;
 mongoose
   .connect(
-    url,
-    {
+    url, {
       useNewUrlParser: true
     }
   )
@@ -99,6 +98,13 @@ app.post("/posts/store", storePostController);
 app.post("/users/register", auth, storeUserController);
 app.post("/users/login", redirectIfAuthenticated, loginUserController);
 
+//multi step form test feature
+// app.get('/test', (req, res) => {
+//   res.render('test');
+// })
+// app.post('/google',(req,res)=>{
+//   res.json(req.body);
+// })
 // //aboutPage
 // app.get("/about", (req, res) => {x
 //   res.sendFile(path.resolve(__dirname, "public/about.html"));
